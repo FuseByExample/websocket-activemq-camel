@@ -1,0 +1,38 @@
+<news>
+    <item>
+        <symbol>APPLE</symbol>
+        <title>Apple earnings: Will big numbers rev up its stock?</title>
+        <picture>http://asset3.cbsistatic.com/cnwk.1d/i/tim/2012/02/06/appleearnings.jpg</picture>
+        <info>Apple reports its second quarter results tomorrow, and bigger sales of iPhones and iPads may help reverse AAPL's recent downward stock trajectory.</info>
+    </item>
+    <item>
+        <symbol>MACINTOSH</symbol>
+        <title>Apple iPad 3 expected on 7 March following press event</title>
+        <picture>http://news.bbcimg.co.uk/media/images/58774000/jpg/_58774106_58773429.jpg</picture>
+        <info>Apple has announced an event on 7 March at which the company is expected to launch its latest iPad tablet. Invitations sent to journalists read: We have something you really have to see. And touch. While not officially confirming the product's launch, the message was accompanied by an image showing what looked to be an iPad touchscreen.</info>
+    </item>
+    <item>
+        <symbol>GOOGLE</symbol>
+        <title>Google to launch online storage service for consumers</title>
+        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
+        <info>San Francisco: Google Inc is preparing to roll out a service to let consumers store photos and other content online, a source familiar with the matter said, pushing into a market now dominated by the likes of Dropbox and Box.The service, to be called Google Drive, could be announced as soon as Tuesday and would be offered with both free and premium for-pay versions, the source said.</info>
+    </item>
+    <item>
+        <symbol>IBM</symbol>
+        <title>FuseSource acquires IBM Integration technology</title>
+        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
+        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
+    </item>
+    <item>
+        <symbol>SAP</symbol>
+        <title>FuseSource acquires SAP Integration technology</title>
+        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
+        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
+    </item>
+    <item>
+        <symbol>ORA</symbol>
+        <title>FuseSource acquires Oracle Integration technology</title>
+        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
+        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
+    </item>
+</news>

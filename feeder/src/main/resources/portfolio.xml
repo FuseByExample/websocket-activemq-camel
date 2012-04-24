@@ -1,0 +1,124 @@
+<portfolio>
+
+	<stock>
+		<symbol>XOM</symbol>
+		<company>Exxon Mobile Corp</company>
+		<last>61.56</last>
+	</stock>
+
+	<stock>
+		<symbol>WMT</symbol>
+		<company>Wal-Mart Stores</company>
+		<last>45.62</last>
+	</stock>
+
+	<stock>
+		<symbol>GM</symbol>
+		<company>General Motors Corporation</company>
+		<last>19.8</last>
+	</stock>
+
+	<stock>
+		<symbol>CVX</symbol>
+		<company>Chevron Corp New</company>
+		<last>58.95</last>
+	</stock>
+
+	<stock>
+		<symbol>COP</symbol>
+		<company>Conocophillips</company>
+		<last>67.14</last>
+	</stock>
+
+	<stock>
+		<symbol>GE</symbol>
+		<company>General Electric Company</company>
+		<last>33.61</last>
+	</stock>
+
+	<stock>
+		<symbol>C</symbol>
+		<company>Citigroup Inc</company>
+		<last>48.18</last>
+	</stock>
+
+	<stock>
+		<symbol>AIG</symbol>
+		<company>American International Group Inc</company>
+		<last>62.92</last>
+	</stock>
+
+	<stock>
+		<symbol>GOOG</symbol>
+		<company>Google Inc</company>
+		<last>417.93</last>
+	</stock>
+
+	<stock>
+		<symbol>ADBE</symbol>
+		<company>Adobe Systems Incorporated</company>
+		<last>39.20</last>
+	</stock>
+
+	<stock>
+		<symbol>JBLU</symbol>
+		<company>JetBlue Airways Corporation</company>
+		<last>10.57</last>
+	</stock>
+
+	<stock>
+		<symbol>COKE</symbol>
+		<company>Coca-Cola Bottling Co. Consolidated</company>
+		<last>48.20</last>
+	</stock>
+
+	<stock>
+		<symbol>GENZ</symbol>
+		<company>Genzyme Corporation</company>
+		<last>61.16</last>
+	</stock>
+
+	<stock>
+		<symbol>YHOO</symbol>
+		<company>Yahoo Inc.</company>
+		<last>32.78</last>
+	</stock>
+
+	<stock>
+		<symbol>IBM</symbol>
+		<company>International Business Machines Corp.</company>
+		<last>82.34</last>
+	</stock>
+
+	<stock>
+		<symbol>BA</symbol>
+		<company>Boeing Company</company>
+		<last>83.45</last>
+	</stock>
+
+	<stock>
+		<symbol>SAP</symbol>
+		<company>SAP AG</company>
+		<last>54.63</last>
+	</stock>
+
+	<stock>
+		<symbol>MOT</symbol>
+		<company>Motorola, Inc.</company>
+		<last>21.35</last>
+	</stock>
+
+	<stock>
+		<symbol>VZ</symbol>
+		<company>Verizon Communications</company>
+		<last>33.03</last>
+	</stock>
+
+	<stock>
+		<symbol>MCD</symbol>
+		<company>McDonald's Corporation</company>
+		<last>34.57</last>
+	</stock>
+
+
+</portfolio>

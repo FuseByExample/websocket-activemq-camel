@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 10px;
+}
+
+p, h1, h2, h3, th, td, a {
+    font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+    font-size: 11px;
+}
+
+div.main {
+    background: #66a3c2;
+    border: 1px solid #aeb3b6;
+    padding: 15px;
+    float: left;
+    position: fixed;
+    z-index: 99999;
+    /*--CSS3 Rounded Corners--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 400px;
+    height: 800px;
+
+}
+
+div.main2 {
+    border: 1px solid #aeb3b6;
+    padding: 15px;
+    float: left;
+    position: fixed;
+    z-index: 99999;
+    /*--CSS3 Rounded Corners--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 800px;
+    height: 400px;
+
+}
+
+table {
+    width: 100%;
+    background: #fff;
+    text-align: left;
+    border-spacing: 0px;
+    border: 1px solid #aeb3b6;
+    border-collapse: collapse;
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 3px 7px #000;
+    -moz-box-shadow: 0px 3px 7px #000;
+    box-shadow: 0px 3px 7px #000;
+
+}
+
+th {
+    border-left: 1px solid #aeb3b6;
+    border-right: 1px solid #aeb3b6;
+    background-color: #dbdbdb;
+    text-align: right;
+    height: 10px;
+    vertical-align: center;
+    padding: 5px 5px;
+}
+
+td {
+    border-left: 1px solid #aeb3b6;
+    border-right: 1px solid #aeb3b6;
+    padding: 10px 10px;
+    text-align: right;
+    height: 10px;
+    vertical-align: center;
+    padding: 5px 5px;
+}
+
+td.green {
+    color: green;
+}
+
+.stockTable {
+    font-size: 14px;
+    border-color: #44687d;
+    border-bottom-width: 1px solid;
+}
+
+.stockTable th {
+    color: #ffffff;
+    background-color: #ff5113;
+    border-color: #cccccc;
+    border-width: 0px 1px 1px 0px;
+    border-style: solid;
+    padding-bottom: 3px;
+}
+
+.stockTable tr td {
+    height: 22px;
+    border-color: #cccccc;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+}
+
+.news {
+    width: 500px;
+    height: 100px;
+    overflow: hidden;
+    border: 1px solid #DDD;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #DDD;
+}
+
+.news li {
+    height: 30px;
+    border-bottom: 1px dotted #DDD;
+    padding: 5px;
+    margin: 0px 5px;
+}
+
+#news {
+    height: 300px;
+}
+
+#news li {
+    height: 80px;
+    overflow: hidden;
+}
+
+#newsList { display: none;}
+
+.tweet {
+    width: 1000px;
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid #DDD;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #DDD;
+}
+
+.tweet li {
+    font-size: 15px;
+    height: 30px;
+    border-bottom: 1px dotted #DDD;
+    padding: 5px;
+    margin: 0px 5px;
+}
+
+#tweet {
+    height: 300px;
+}
+
+#tweet li {
+    height: 40px;
+    overflow: hidden;
+}
+
+#tweetList { display: none;}
+
+
+.newsTable {
+    font-size: 14px;
+    border-color: #44687d;
+    border-bottom-width: 1px solid;
+}
+
+.newsTable th {
+    color: #ffffff;
+    background-color: #ff5113;
+    border-color: #cccccc;
+    border-width: 0px 1px 1px 0px;
+    border-style: solid;
+    padding-bottom: 3px;
+}
+
+.newsTable tr td {
+    height: 22px;
+    border-color: #cccccc;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+}
+
+.symbol {
+    text-align: left;
+    padding-left: 10px;
+}
+
+
+.title {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.info {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.open {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.last {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.change {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.high {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.low {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.percent {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.upChange {
+    background: url(/images/stock_index_up.jpg) center left no-repeat;
+    background-size: 10px;
+    position: relative;
+    font-weight: bold;
+    color: green;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.downChange {
+    background: url(/images/stock_index_down.jpg) center left no-repeat;
+    background-size: 10px;
+    position: relative;
+    font-weight: bold;
+    color: red;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.upPercent {
+    font-weight: bold;
+    color: green;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.downPercent {
+    font-weight: bold;
+    color: red;
+    text-align: right;
+    padding-right: 10px;
+}

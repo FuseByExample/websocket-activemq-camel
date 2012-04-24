@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Example Using Camel WebSocket</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.19.custom.css">
+    <script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.19.custom.min.js"></script>
+    <script type="text/javascript" src="js/news-camel.js"></script>
+    <script>
+        $(document).ready(function () {
+            var supported = ("WebSocket" in window);
+            if (!supported) {
+                var msg = "Your browser does not support Web Sockets. This example will not work properly.<br>";
+                msg += "Please use a Web Browser with Web Sockets support (WebKit or Google Chrome).";
+                $("#connect").html(msg);
+            }
+        });
+    </script>
+</head>
+
+<body style="background-color:transparent">
+<div id='connect'>
+    <form id='connect_form'>
+        <dl>
+            <dt><label for=connect_url>Servers URL</label></dt>
+            <dd><input name='url1' id='url1' value='ws://localhost:9090/newsTopic' size="50"></dd>
+            <dd><input name='url2' id='url2' value='ws://localhost:9090/tweetTopic' size="50"></dd>
+            <dt>&nbsp;</dt>
+            <dd><input type=submit id='connect_submit' value="Connect"></dd>
+        </dl>
+    </form>
+</div>
+<div id="disconnect">
+    <form id='disconnect_form'>
+        <input type=submit id='disconnect_submit' value="Disconnect">
+    </form>
+</div>
+
+<div id="msg">
+</div>
+
+<div>
+    <p>&nbsp;</p>
+    <hr></hr>
+    <p>&nbsp;</p>
+    <p><b>News list</b></p>
+    <p>&nbsp;</p>
+
+    <!--
+    <table id="newsTable" class="newsTable" cellSpacing="0">
+        <thead>
+            <tr>
+                <th class="symbol" width="100px">Symbol</th>
+                <th class="title" width="100px">Title</th>
+                <th class="info" width="300px">Info</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            <td class="feedTitle">News Feed</td>
+            <td class="feedTitle">Tweets</td>
+        </tr>
+        <tr>
+            <td>
+                   <span id="newsList">
+                        <ul id="news" class="news"/>
+                   </span>
+            </td>
+            <td>
+                    <span id="tweetList">
+                        <ul id="tweet" class="tweet"/>
+                    </span>
+            </td>
+        </tr>
+    </table>
+     -->
+</div>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">News Feed</a></li>
+        <li><a href="#tabs-2">Tweets</a></li>
+    </ul>
+    <div id="tabs-1">
+        <p>
+            <span id="newsList">
+                <ul id="news" class="news"/>
+            </span>
+        </p>
+    </div>
+    <div id="tabs-2">
+        <p>
+            <span id="tweetList">
+                <ul id="tweet" class="tweet"/>
+            </span>
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
+
