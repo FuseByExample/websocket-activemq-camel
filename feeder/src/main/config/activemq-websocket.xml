@@ -16,7 +16,6 @@
 -->
 <beans
         xmlns="http://www.springframework.org/schema/beans"
-        xmlns:amq="http://activemq.apache.org/schema/core"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -24,10 +23,16 @@
         http://activemq.apache.org/schema/core
            http://activemq.apache.org/schema/core/activemq-core.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>file:${activemq.base}/conf/credentials.properties</value>
+        </property>
+    </bean>
+
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost-ws" dataDirectory="${activemq.data}">
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost-ws" dataDirectory="${activemq.base}/data">
 
         <destinationPolicy>
             <policyMap>
@@ -37,17 +42,7 @@
                             <vmCursor/>
                         </pendingSubscriberPolicy>
                     </policyEntry>
-                    <policyEntry queue=">" producerFlowControl="true" memoryLimit="1mb">
-                        <!-- Use VM cursor for better latency
-                             For more information, see:
-
-                             http://activemq.apache.org/message-cursors.html
-
-                        <pendingQueuePolicy>
-                          <vmQueueCursor/>
-                        </pendingQueuePolicy>
-                        -->
-                    </policyEntry>
+                    <policyEntry queue=">" producerFlowControl="true" memoryLimit="1mb"/>
                 </policyEntries>
             </policyMap>
         </destinationPolicy>
@@ -57,12 +52,11 @@
         </managementContext>
 
         <persistenceAdapter>
-            <kahaDB directory="${activemq.data}/kahadb"/>
+            <kahaDB directory="${activemq.base}/data/kahadb"/>
         </persistenceAdapter>
 
 
         <plugins>
-            <!-- -->
             <simpleAuthenticationPlugin>
                 <users>
                     <authenticationUser username="system" password="manager" groups="users,admins"/>
@@ -70,9 +64,6 @@
                     <authenticationUser username="guest" password="password" groups="guests"/>
                 </users>
             </simpleAuthenticationPlugin>
-            <!--
-            <jaasDualAuthenticationPlugin/>
-            -->
         </plugins>
 
         <transportConnectors>

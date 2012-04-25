@@ -63,6 +63,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>7.5.4.v20111024</version>
                 <configuration>
+                    <!-- <jettyXml>src/main/etc/jetty.xml</jettyXml> -->
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
                             <port>8080</port>
@@ -76,6 +77,14 @@
                             <keyPassword>jetty-ws</keyPassword>
                         </connector>
                     </connectors>
+                    <!-- Not used for the DEMO
+                    <loginServices>
+                        <loginService implementation="org.eclipse.jetty.security.HashLoginService">
+                            <name>ActiveMQRealm</name>
+                            <config>${basedir}/src/etc/jetty-realm.properties</config>
+                        </loginService>
+                    </loginServices>
+                    -->
                 </configuration>
             </plugin>
         </plugins>

@@ -5,21 +5,14 @@
 1) Download ActiveMQ 5.6 snapshot from this location
     http://repo.fusesource.com/nexus/content/repositories/snapshots/org/apache/activemq/apache-activemq/5.6-fuse-SNAPSHOT/
 
-2) Add websocket transpotr connector in the conf/activemq.xml file
+2) start Jetty Web Server
 
-    <transportConnectors>
-        <transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>
-        <transportConnector name="websocket" uri="ws://0.0.0.0:61614"/>
-    </transportConnectors>
+    cd websocket-activemq-camel/web
+    mvn clean package jetty:run
 
-2) Copy web project into web directory of ActiveMQ
-    mkdir ~/fuse/servers/apache-activemq-5.6-fuse-SNAPSHOT/webapps/trader-app-websocket/
-    cd websocket-activemq-camel
-    cp -R web/src/main/webapp/ ~/fuse/servers/apache-activemq-5.6-fuse-SNAPSHOT/webapps/trader-app-websocket/
-
-3)  Start ActiveMQ 5.6-SNAPSHOT
+3)  Start ActiveMQ 5.6-SNAPSHOT using the config provided in feeder/src/main/config directory
     cd ~/fuse/servers/apache-activemq-5.6-fuse-SNAPSHOT/bin
-    ./activemq console
+    ./activemq console xbean:file:/Users/chmoulli/Fuse/examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
 
 4)  Compile and start Feed application
     cd websocket-activemq-camel/feed
