@@ -29,7 +29,7 @@ public class WebSocketNewsRoute extends RouteBuilder {
     public void configure() throws Exception {
 
            from("activemq:topic:newsTopic")
-             .log(LoggingLevel.INFO,">> News info received : ${body}")
+             .log(LoggingLevel.DEBUG,">> News info received : ${body}")
              .to("websocket:newsTopic?sendToAll=true");
 
     }

@@ -27,7 +27,7 @@
                         .replace('http://', 'ws://')
                         .replace('https://', 'wss://')
                         .replace('8080','9090')
-                        .replace('index-jetty.html','chat-room');
+                        .replace('chat-camel.html','chat-room');
                 //alert( location );
                 this._ws = new WebSocket(location);
                 this._ws.onopen = this._onopen;
@@ -178,7 +178,7 @@
 </script>
 
 <p>
-    This is a demonstration of the Jetty websocket server.
+    This is a CamelOne Demo of the camel-websocket component.
 </p>
 </body>
 </html>

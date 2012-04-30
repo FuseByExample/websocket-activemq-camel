@@ -51,7 +51,7 @@ public class TwitterRoute extends RouteBuilder {
         from("twitter://search?type=polling&delay=5&keywords=gaga&" + getUriTokens())
                 .transform(body().convertToString())
                 .bean(TwitterRoute.class,"tweetToJSON")
-                .log(LoggingLevel.INFO, ">> Search for java : ${body}")
+                .log(LoggingLevel.DEBUG, ">> Search for java : ${body}")
                 .to("websocket:tweetTopic?sendToAll=true");
     }
 

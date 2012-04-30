@@ -1,49 +1,27 @@
 $(document).ready(function () {
 
-    var socket, socket2;
+        var socket;
 
-    $('#connect_form2').submit(function () {
+        $('#connect_form').submit(function () {
 
-        var host2 = $("#connect_url2").val();
-        socket2 = new WebSocket(host2);
+            var stockTable = document.getElementById("stockTable");
+            var stockRowIndexes = {};
+            var host = $("#connect_url").val();
+            socket = new WebSocket(host);
 
-        // Add a connect listener
-        socket2.onopen = function () {
-            $('#msg').append('<p class="event">Socket2 Status: ' + socket2.readyState + ' (open)</p>');
-        }
+            $('#connect').fadeOut({ duration:'fast' });
+            $('#disconnect').fadeIn();
+            $('#send_form_input').removeAttr('disabled');
 
-        socket2.onmessage = function (msg) {
-            $('#msg').append('<p class="message">Received2: ' + msg.data + "</p>");
-        }
+            // Add a connect listener
+            socket.onopen = function () {
+                $('#msg').append('<p class="event">Socket Status: ' + socket.readyState + ' (open)</p>');
+            }
 
-        socket2.onclose = function () {
-            $('#msg').append('<p class="event">Socket2 Status: ' + socket2.readyState + ' (Closed)</p>');
-        }
+            socket.onmessage = function (msg) {
+                // $('#msg').append('<p class="message">Received: ' + msg.data + "</p>");
 
-        return false;
-    });
-
-
-    $('#connect_form').submit(function () {
-
-        var stockTable = document.getElementById("stockTable");
-        var stockRowIndexes = {};
-        var host = $("#connect_url").val();
-        socket = new WebSocket(host);
-
-        $('#connect').fadeOut({ duration:'fast' });
-        $('#disconnect').fadeIn();
-        $('#send_form_input').removeAttr('disabled');
-
-        // Add a connect listener
-        socket.onopen = function () {
-            $('#msg').append('<p class="event">Socket Status: ' + socket.readyState + ' (open)</p>');
-        }
-
-        socket.onmessage = function (msg) {
-            // $('#msg').append('<p class="message">Received: ' + msg.data + "</p>");
-
-            var quote = JSON.parse(msg.data);
+                var quote = JSON.parse(msg.data);
 
             // extract the stock data fields
             var symbol = quote.symbol;
@@ -119,7 +97,6 @@ $(document).ready(function () {
     $('#disconnect_form').submit(function () {
 
         socket.close();
-        socket2.close();
 
         $('#msg').append('<p class="event">Socket Status: ' + socket.readyState + ' (Closed)</p>');
         $('#disconnect').fadeOut({ duration:'fast' });
