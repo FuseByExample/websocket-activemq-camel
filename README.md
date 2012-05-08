@@ -5,13 +5,17 @@
 1) Download ActiveMQ 5.6 snapshot from this location
     http://repo.fusesource.com/nexus/content/repositories/snapshots/org/apache/activemq/apache-activemq/5.6-fuse-SNAPSHOT/
 
+    or Apache Release
+    http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.6.0/
+
+
 2) start Jetty Web Server
 
     cd websocket-activemq-camel/web
     mvn clean package jetty:run
 
-3)  Start ActiveMQ 5.6-SNAPSHOT using the config provided in feeder/src/main/config directory
-    cd ~/fuse/servers/apache-activemq-5.6-fuse-SNAPSHOT/bin
+3)  Start ActiveMQ 5.6 using the config provided in feeder/src/main/config directory
+    cd ~/fuse/servers/apache-activemq-5.6/bin
     ./activemq console xbean:file:/Users/chmoulli/Fuse/examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
 
 4)  Compile and start Feed application
@@ -19,7 +23,7 @@
     mvn clean package -P run-trader
 
 5) Open your web browser
-    http://0.0.0.0:8161/trader-app-websocket/stocks-activemq.html
+    http://localhost:8080/stocks-activemq.html
 
     and click on connect button
 
@@ -38,7 +42,7 @@
 3) Start Apache Camel Routes
 
     cd websocket-activemq-camel/camel
-    vn clean camel:run
+    mvn clean camel:run
 
 4) Verify stock and news websockets in your browser
 
