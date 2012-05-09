@@ -1,15 +1,33 @@
 <news>
     <item>
+        <symbol>FUSE</symbol>
+        <title>CamelOne Brings Integration and Messaging Experts to Boston</title>
+        <picture>http://si0.twimg.com/profile_images/1152103417/fuseicon_pb.jpg</picture>
+        <info>FuseSource Corp., experts in open source integration and messaging, today announced some of the many celebrated experts and enterprises that will share success stories and best practices at CamelOne – the only event designed for enterprise users of open source integration and messaging. CamelOne 2012 will be held in Boston, Massachusetts from May 15-16, 2012 at the Sheraton Boston Hotel.</info>
+    </item>
+    <item>
+        <symbol>FUSE</symbol>
+        <title>Lynden Uses FuseSource’s Enterprise-Class Open Source Distributions</title>
+        <picture>http://si0.twimg.com/profile_images/1152103417/fuseicon_pb.jpg</picture>
+        <info>Lynden Uses FuseSource’s Enterprise-Class Distributions of Open Source Integration and Messaging Solutions to Improve Shipment Tracking and Reporting for High Volume Customers.</info>
+    </item>
+    <item>
         <symbol>APPLE</symbol>
         <title>Apple earnings: Will big numbers rev up its stock?</title>
         <picture>http://asset3.cbsistatic.com/cnwk.1d/i/tim/2012/02/06/appleearnings.jpg</picture>
         <info>Apple reports its second quarter results tomorrow, and bigger sales of iPhones and iPads may help reverse AAPL's recent downward stock trajectory.</info>
     </item>
     <item>
-        <symbol>MACINTOSH</symbol>
+        <symbol>APPLE</symbol>
         <title>Apple iPad 3 expected on 7 March following press event</title>
         <picture>http://news.bbcimg.co.uk/media/images/58774000/jpg/_58774106_58773429.jpg</picture>
         <info>Apple has announced an event on 7 March at which the company is expected to launch its latest iPad tablet. Invitations sent to journalists read: We have something you really have to see. And touch. While not officially confirming the product's launch, the message was accompanied by an image showing what looked to be an iPad touchscreen.</info>
+    </item>
+    <item>
+        <symbol>FUSE</symbol>
+        <title>FuseSource Launches Beta Program for New Open Source Integration and Messaging Platforms</title>
+        <picture>http://si0.twimg.com/profile_images/1152103417/fuseicon_pb.jpg</picture>
+        <info>FuseSource Corp., experts in open source integration and messaging, today invited enterprise software developers, architects and DevOps professionals to participate in a beta program for two new platforms that deliver the capabilities enterprises need to use open-source technology for all of their integration and messaging needs. Both products reflect the low cost and flexibility inherent in open source and build on FuseSource™ enterprise-class offerings based on popular Apache Software Foundation projects Apache ServiceMix, ActiveMQ, Camel, and CXF.</info>
     </item>
     <item>
         <symbol>GOOGLE</symbol>
@@ -18,21 +36,9 @@
         <info>San Francisco: Google Inc is preparing to roll out a service to let consumers store photos and other content online, a source familiar with the matter said, pushing into a market now dominated by the likes of Dropbox and Box.The service, to be called Google Drive, could be announced as soon as Tuesday and would be offered with both free and premium for-pay versions, the source said.</info>
     </item>
     <item>
-        <symbol>IBM</symbol>
-        <title>FuseSource acquires IBM Integration technology</title>
-        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
-        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
-    </item>
-    <item>
-        <symbol>SAP</symbol>
-        <title>FuseSource acquires SAP Integration technology</title>
-        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
-        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
-    </item>
-    <item>
-        <symbol>ORA</symbol>
-        <title>FuseSource acquires Oracle Integration technology</title>
-        <picture>http://znn.india.com/Img/2012/4/24/googlei.jpg</picture>
-        <info>DDDD FFFFF FFFFF TTTT YYYYY UUUU IIIII OOOOOO PPPPPP SSSSSS TTTT</info>
+        <symbol>FUSE</symbol>
+        <title>In Mid-May, CamelOne Event Explores Surge in Open Source Integration by Large Enterprises</title>
+        <picture>http://si0.twimg.com/profile_images/1152103417/fuseicon_pb.jpg</picture>
+        <info>The growing role of open source middleware, even in large-scale enterprises, will be on display at FuseSource’s CamelOne event in Boston, May 15-16. Attendees will see FuseSource’s latest offerings based on Apache’s top open source middleware projects, hear from top Apache committers and learn the latest best practices that are driving a new wave of open source-based integration.</info>
     </item>
 </news>
