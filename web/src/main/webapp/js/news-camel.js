@@ -42,7 +42,7 @@ $(document).ready(function () {
             $res.appendTo('#news');
 
 
-            setInterval(function(){ tickNews () }, 10000);
+            setInterval(function(){ tickNews () }, 5000);
             $('#newsList').show();
 
         }

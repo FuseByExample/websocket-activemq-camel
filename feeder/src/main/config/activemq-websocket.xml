@@ -29,32 +29,8 @@
         </property>
     </bean>
 
-    <!--
-        The <broker> element is used to configure the ActiveMQ broker.
-    -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost-ws" dataDirectory="${activemq.base}/data">
-
-        <destinationPolicy>
-            <policyMap>
-                <policyEntries>
-                    <policyEntry topic=">" producerFlowControl="true" memoryLimit="1mb">
-                        <pendingSubscriberPolicy>
-                            <vmCursor/>
-                        </pendingSubscriberPolicy>
-                    </policyEntry>
-                    <policyEntry queue=">" producerFlowControl="true" memoryLimit="1mb"/>
-                </policyEntries>
-            </policyMap>
-        </destinationPolicy>
-
-        <managementContext>
-            <managementContext createConnector="false"/>
-        </managementContext>
-
-        <persistenceAdapter>
-            <kahaDB directory="${activemq.base}/data/kahadb"/>
-        </persistenceAdapter>
-
+    <broker xmlns="http://activemq.apache.org/schema/core"
+	        brokerName="localhost-ws" dataDirectory="${activemq.base}/data">
 
         <plugins>
             <simpleAuthenticationPlugin>

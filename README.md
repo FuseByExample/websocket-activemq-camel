@@ -8,7 +8,6 @@
     or Apache Release
     http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.6.0/
 
-
 2) start Jetty Web Server
 
     cd websocket-activemq-camel/web

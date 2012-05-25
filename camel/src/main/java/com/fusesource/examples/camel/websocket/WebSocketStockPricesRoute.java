@@ -28,9 +28,9 @@ public class WebSocketStockPricesRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-           from("activemq:topic:stockQuoteTopic")
+           from("activemq:topic:stockQuoteTopic").routeId("fromJMStoWebSocketQuotes")
              .log(LoggingLevel.DEBUG,">> Stock price received : ${body}")
-             .to("websocket:stockQuoteTopic?sendToAll=true");
+             .to("websocket://localhost:9090/stockQuoteTopic?sendToAll=true");
 
     }
 }

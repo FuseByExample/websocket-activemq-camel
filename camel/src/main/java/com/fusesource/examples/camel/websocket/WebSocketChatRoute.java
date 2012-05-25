@@ -24,9 +24,9 @@ public class WebSocketChatRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-           from("websocket:chat-room")
+           from("websocket://localhost:9090/chat-room").routeId("fromWebSocketChattoWebSocketChat")
              .log(LoggingLevel.INFO,">> Message received : ${body}")
-             .to("websocket:chat-room?sendToAll=true");
+             .to("websocket://localhost:9090/chat-room?sendToAll=true");
 
     }
 }

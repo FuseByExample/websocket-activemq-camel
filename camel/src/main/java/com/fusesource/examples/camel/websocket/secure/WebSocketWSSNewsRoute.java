@@ -14,24 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fusesource.examples.camel.websocket;
+package com.fusesource.examples.camel.websocket.secure;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.jms.JmsComponent;
-import org.apache.camel.component.websocket.WebsocketComponent;
 
-import javax.jms.ConnectionFactory;
-
-public class WebSocketNewsRoute extends RouteBuilder {
+public class WebSocketWSSNewsRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
 
-           from("activemq:topic:newsTopic").routeId("fromJMStoWebSocketNews")
-             .log(LoggingLevel.DEBUG,">> News info received : ${body}")
+           from("activemq:topic:newsTopic").routeId("fromJMStoWebSocketSecureNews")
+             .log(LoggingLevel.DEBUG, ">> News info received : ${body}")
              .delay(5000)
-             .to("websocket://localhost:9090/newsTopic?sendToAll=true");
+             .to("websocket://localhost:8443/newsTopic?sendToAll=true&sslContextParametersRef=#sslContextParameters");
 
     }
 }
