@@ -65,6 +65,7 @@
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <packageScan>
         <package>com.fusesource.examples.camel.websocket</package>
+        <excludes>**.*WSS*</excludes>
         <!--<package>com.fusesource.examples.camel.websocket.secure</package>-->
     </packageScan>
   </camelContext>
