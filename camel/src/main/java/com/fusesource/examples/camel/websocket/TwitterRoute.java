@@ -43,12 +43,12 @@ public class TwitterRoute extends RouteBuilder {
     @Override
     public void configure() {
 
-        from("twitter://search?type=polling&delay=5&keywords=camelone&" + getUriTokens()).routeId("fromTwittertoWebSocketTweet")
+        from("twitter://search?type=polling&delay=5&keywords=java&" + getUriTokens()).routeId("fromTwittertoWebSocketTweet")
                 .transform(body().convertToString())
                 .delay(5000)
                 .bean(TwitterRoute.class,"tweetToJSON")
                 .log(LoggingLevel.INFO, ">> Search for FuseNews : ${body}")
-                .to("websocket://localhost:9090/tweetTopic?sendToAll=true");
+                .to("websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&staticResources=classpath:webapp");
     }
 
     protected String getUriTokens() {

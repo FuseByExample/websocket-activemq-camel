@@ -11,7 +11,7 @@
 2) start Jetty Web Server
 
     cd websocket-activemq-camel/web
-    mvn clean package jetty:run
+    mvn package jetty:run
 
 3)  Start ActiveMQ 5.6 using the config provided in feeder/src/main/config directory
     cd ~/fuse/servers/apache-activemq-5.6/bin
@@ -19,7 +19,7 @@
 
 4)  Compile and start Feed application
     cd websocket-activemq-camel/feed
-    mvn clean package -P run-trader
+    mvn package -P run-trader
 
 5) Open your web browser
     http://localhost:8080/stocks-activemq.html
@@ -28,28 +28,39 @@
 
 ## Camel
 
-1) Start Jetty Server
+1) Start Apache Camel Routes (without using wss://)
 
-    cd websocket-activemq-camel/web
-    mvn clean package jetty:run
+    cd websocket-activemq-camel/camel
+    mvn clean camel:run -P NO-SSL
 
 2) Compile and Start Feed application
 
     cd websocket-activemq-camel/feed
     mvn clean package -P run-trader
 
-3) Start Apache Camel Routes
-
-    cd websocket-activemq-camel/camel
-    mvn clean camel:run
-
-4) Verify stock and news websockets in your browser
+3) Verify stock and news websockets in your browser
 
     http://localhost:8080/stocks-camel.html
     http://localhost:8080/news-camel.html
 
     and click on connect button
 
+To test SSL & wss:// protocol, execute the follownig command
 
+1) Start Apache Camel Routes (with wss:// & HTTPS)
+
+    cd websocket-activemq-camel/camel
+    mvn clean camel:run -P SSL
+
+2) Compile and Start Feed application
+
+    cd websocket-activemq-camel/feed
+    mvn clean package -P run-trader
+
+3) Verify stock and news websockets in your browser
+
+    https://localhost:8443/news-camel-wss.html
+
+    and click on connect button
 
 

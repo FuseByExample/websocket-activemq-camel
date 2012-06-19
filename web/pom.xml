@@ -75,6 +75,9 @@
                             <keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
                             <password>jetty-ws</password>
                             <keyPassword>jetty-ws</keyPassword>
+                            <!--<keystore>/Users/chmoulli/Temp/keystore</keystore>
+                            <password>testtest</password>
+                            <keyPassword>test</keyPassword> -->
                         </connector>
                     </connectors>
                     <!-- Not used for the DEMO

@@ -8,7 +8,7 @@ body {
 }
 
 p, h1, h2, h3, th, td, a {
-    font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 11px;
 }
 
@@ -28,22 +28,8 @@ div.main {
 
 }
 
-div.main2 {
-    border: 1px solid #aeb3b6;
-    padding: 15px;
-    float: left;
-    position: fixed;
-    z-index: 99999;
-    /*--CSS3 Rounded Corners--*/
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    width: 800px;
-    height: 400px;
-
-}
-
 table {
+    font-family: Arial, sans-serif;
     width: 100%;
     background: #fff;
     text-align: left;
@@ -55,6 +41,12 @@ table {
     -moz-box-shadow: 0px 3px 7px #000;
     box-shadow: 0px 3px 7px #000;
 
+}
+
+.feedTitle {
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 th {
@@ -104,7 +96,7 @@ td.green {
 }
 
 .news {
-    width: 500px;
+    width: 1000px;
     height: 100px;
     overflow: hidden;
     border: 1px solid #DDD;
@@ -116,6 +108,7 @@ td.green {
 }
 
 .news li {
+    font-size: 15px;
     height: 30px;
     border-bottom: 1px dotted #DDD;
     padding: 5px;
@@ -130,6 +123,7 @@ td.green {
     height: 80px;
     overflow: hidden;
 }
+
 
 #newsList { display: none;}
 
@@ -164,6 +158,17 @@ td.green {
 
 #tweetList { display: none;}
 
+#rss {
+    height: 300px;
+}
+
+#rss li {
+    height: 80px;
+    overflow: hidden;
+}
+
+#rssList { display: none;}
+
 
 .newsTable {
     font-size: 14px;
@@ -191,7 +196,6 @@ td.green {
     text-align: left;
     padding-left: 10px;
 }
-
 
 .title {
     text-align: left;

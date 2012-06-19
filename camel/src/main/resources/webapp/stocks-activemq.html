@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Quote - Stomp Over WebSocket</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+    <script src='js/stomp.js'></script>
+    <script src='js/stock-quote.js'></script>
+    <script>
+        $(document).ready(function() {
+            var supported = ("WebSocket" in window);
+            if (!supported) {
+                var msg = "Your browser does not support Web Sockets. This example will not work properly.<br>";
+                msg += "Please use a Web Browser with Web Sockets support (WebKit or Google Chrome).";
+                $("#connect").html(msg);
+            }
+        });
+    </script>
+</head>
+
+<body style="background-color:transparent">
+<div id='connect'>
+    <form id='connect_form'>
+        <dl>
+            <dt><label for=connect_url>Server URL</label></dt>
+            <dd><input name=url id='connect_url' value='ws://localhost:61614/stomp' size="50"></dd>
+            <dt><label for=connect_login>Login</label></dt>
+            <dd><input id='connect_login' placeholder="User Login" value="guest"></dd>
+            <dt><label for=connect_passcode>Password</label></dt>
+            <dd><input id='connect_passcode' type=password placeholder="User Password" value="password33"></dd>
+            <dt><label for=destinationQuotes>Destination - Stock Quotes</label></dt>
+            <dd><input id='destinationQuotes' placeholder="Destination Quotes" value="/topic/stockQuoteTopic" size="50"></dd>
+            <dt>&nbsp;</dt>
+            <dd><input type=submit id='connect_submit' value="Connect"></dd>
+        </dl>
+    </form>
+</div>
+<div id="disconnect">
+    <form id='disconnect_form'>
+        <input type=submit id='disconnect_submit' value="Disconnect">
+    </form>
+</div>
+
+
+<div class="main">
+    <p style="padding-bottom: 22px;"><b>Stock prices</b></p>
+
+    <table id="stockTable" class="stockTable" cellSpacing="0" >
+        <thead>
+        <tr>
+            <th class="symbol" width="60%">Symbol</th>
+            <th class="open" width="100px">Open</th>
+            <th class="last" width="120px">Last</th>
+            <th class="change" width="120px">Change</th>
+            <th class="high" width="120px">High</th>
+            <th class="low" width="120px">Low</th>
+            <th class="percent" width="120px">% Percent</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+

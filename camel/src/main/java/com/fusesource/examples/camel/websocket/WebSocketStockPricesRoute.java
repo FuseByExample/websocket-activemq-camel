@@ -30,7 +30,7 @@ public class WebSocketStockPricesRoute extends RouteBuilder {
 
            from("activemq:topic:stockQuoteTopic").routeId("fromJMStoWebSocketQuotes")
              .log(LoggingLevel.DEBUG,">> Stock price received : ${body}")
-             .to("websocket://localhost:9090/stockQuoteTopic?sendToAll=true");
+             .to("websocket://0.0.0.0:9090/stockQuoteTopic?sendToAll=true&staticResources=classpath:webapp");
 
     }
 }

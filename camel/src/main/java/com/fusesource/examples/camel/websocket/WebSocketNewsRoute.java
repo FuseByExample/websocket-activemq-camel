@@ -31,7 +31,7 @@ public class WebSocketNewsRoute extends RouteBuilder {
            from("activemq:topic:newsTopic").routeId("fromJMStoWebSocketNews")
              .log(LoggingLevel.DEBUG,">> News info received : ${body}")
              .delay(5000)
-             .to("websocket://localhost:9090/newsTopic?sendToAll=true");
+             .to("websocket://0.0.0.0:9090/newsTopic?sendToAll=true&staticResources=classpath:webapp");
 
     }
 }
