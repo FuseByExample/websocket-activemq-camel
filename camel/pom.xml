@@ -22,7 +22,7 @@
     <parent>
         <artifactId>project</artifactId>
         <groupId>com.fusesource.examples.activemq.websocket</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -30,11 +30,6 @@
     <artifactId>camel</artifactId>
     <packaging>jar</packaging>
     <name>FuseSource :: WebSocket :: Camel</name>
-
-    <properties>
-        <camel-version>2.10-SNAPSHOT</camel-version>
-        <activemq-version>5.5.1</activemq-version>
-    </properties>
 
     <dependencies>
         <dependency>

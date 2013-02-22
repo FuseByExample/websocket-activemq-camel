@@ -37,30 +37,9 @@
         </transportConnectors>
     </broker>
 
-    <!--
-    <bean id="websocket" class="org.apache.camel.component.websocket.WebsocketComponent">
-        <property name="port" value="9090"/>
-    </bean>
-    -->
-
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="tcp://localhost:61616"/>
     </bean>
-
-    <camel:sslContextParameters
-            id="sslContextParameters">
-        <camel:keyManagers
-                keyPassword="changeit">
-            <camel:keyStore
-                    resource="jsse/localhost.ks"
-                    password="changeit"/>
-        </camel:keyManagers>
-        <camel:trustManagers>
-            <camel:keyStore
-                    resource="jsse/localhost.ks"
-                    password="changeit"/>
-        </camel:trustManagers>
-    </camel:sslContextParameters>
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <packageScan>

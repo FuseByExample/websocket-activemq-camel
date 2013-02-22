@@ -5,27 +5,16 @@
     <parent>
         <groupId>com.fusesource.examples.activemq.websocket</groupId>
         <artifactId>project</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.fusesource.examples.activemq.websocket</groupId>
     <artifactId>trader</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>FuseSource :: WebSocket :: ActiveMQ :: Trader</name>
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-core</artifactId>
-            <version>5.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-    </dependencies>
+
     <profiles>
         <profile>
             <id>run-trader</id>
@@ -58,7 +47,7 @@
                     <plugin>
                         <groupId>org.apache.activemq.tooling</groupId>
                         <artifactId>maven-activemq-plugin</artifactId>
-                        <version>5.6-SNAPSHOT</version>
+                        <version>${activemq-version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -86,12 +75,12 @@
                             <dependency>
                                 <groupId>org.apache.activemq</groupId>
                                 <artifactId>activemq-optional</artifactId>
-                                <version>5.6-SNAPSHOT</version>
+                                <version>${activemq-version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.slf4j</groupId>
                                 <artifactId>slf4j-log4j12</artifactId>
-                                <version>1.6.4</version>
+                                <version>${slf4j-version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.slf4j</groupId>
@@ -101,7 +90,7 @@
                             <dependency>
                                 <groupId>log4j</groupId>
                                 <artifactId>log4j</artifactId>
-                                <version>1.2.16</version>
+                                <version>${log4j-version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
@@ -109,62 +98,4 @@
             </build>
         </profile>
     </profiles>
-
-    <build>
-        <plugins>
-            <!--
-                        <plugin>
-                            <groupId>org.apache.activemq.tooling</groupId>
-                            <artifactId>maven-activemq-plugin</artifactId>
-                            <version>5.6-SNAPSHOT</version>
-                            <executions>
-                                <execution>
-                                    <goals>
-                                        <goal>run</goal>
-                                    </goals>
-                                    <phase>package</phase>
-                                </execution>
-                            </executions>
-                            <configuration>
-                                <configUri>xbean:file:${basedir}/src/main/config/activemq-websocket.xml</configUri>
-                                <fork>false</fork>
-                                <systemProperties>
-                                    <property>
-                                        <name>org.apache.activemq.default.directory.prefix</name>
-                                        <value>./target/</value>
-                                    </property>
-                                </systemProperties>
-                            </configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.apache.xbean</groupId>
-                                    <artifactId>xbean-spring</artifactId>
-                                    <version>3.5</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.apache.activemq</groupId>
-                                    <artifactId>activemq-optional</artifactId>
-                                    <version>5.6-SNAPSHOT</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.slf4j</groupId>
-                                    <artifactId>slf4j-log4j12</artifactId>
-                                    <version>1.6.4</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.slf4j</groupId>
-                                    <artifactId>slf4j-api</artifactId>
-                                    <version>1.6.4</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>log4j</groupId>
-                                    <artifactId>log4j</artifactId>
-                                    <version>1.2.16</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-                        -->
-                    </plugins>
-                </build>
-
-            </project>
+</project>
