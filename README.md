@@ -39,7 +39,7 @@
    web project and stomp javascript clients used to open communication between the web browser and websocket
    server running in JBoss A-MQ.
 
-    JBossA-MQ:karaf@root>install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+    JBossA-MQ:karaf@root>install -s war:mvn:org.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
 
 6) Checkout Websocket-activemq-camel git project from FuseByExample GitHub repository
 

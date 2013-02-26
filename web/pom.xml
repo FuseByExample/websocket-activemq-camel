@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.fusesource.examples.activemq.websocket</groupId>
+        <groupId>org.fusesource.examples.activemq.websocket</groupId>
         <artifactId>project</artifactId>
         <version>1.0</version>
     </parent>
 
-    <groupId>com.fusesource.examples.activemq.websocket</groupId>
+    <groupId>org.fusesource.examples.activemq.websocket</groupId>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
@@ -60,7 +60,7 @@
                 </executions>
                 <configuration>
                     <keystore>${project.build.directory}/jetty-ssl.keystore</keystore>
-                    <dname>cn=com.fusesource.example</dname>
+                    <dname>cn=org.fusesource.example</dname>
                     <keypass>jetty-ws</keypass>
                     <storepass>jetty-ws</storepass>
                     <alias>jetty-ws</alias>

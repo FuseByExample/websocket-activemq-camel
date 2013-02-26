@@ -14,21 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fusesource.examples.camel.websocket;
+package org.fusesource.examples.camel.websocket;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.jms.JmsComponent;
+import org.apache.camel.component.websocket.WebsocketComponent;
 
-public class WebSocketChatRoute extends RouteBuilder {
+import javax.jms.ConnectionFactory;
+
+public class WebSocketNewsRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
 
-           from("websocket://0.0.0.0:9090/chat-room").routeId("fromWebSocketChattoWebSocketChat")
-             .log(LoggingLevel.INFO,">> Message received : ${body}")
-             .to("websocket://0.0.0.0:9090/chat-room?sendToAll=true&staticResources=classpath:webapp");
+           from("activemq:topic:newsTopic").routeId("fromJMStoWebSocketNews")
+             .log(LoggingLevel.DEBUG,">> News info received : ${body}")
+             .delay(5000)
+             .to("websocket://0.0.0.0:9090/newsTopic?sendToAll=true&staticResources=classpath:webapp");
 
     }
 }
-
-

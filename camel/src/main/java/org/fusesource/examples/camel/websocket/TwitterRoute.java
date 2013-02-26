@@ -1,4 +1,4 @@
-package com.fusesource.examples.camel.websocket;
+package org.fusesource.examples.camel.websocket;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;

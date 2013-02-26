@@ -21,7 +21,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>project</artifactId>
-        <groupId>com.fusesource.examples.activemq.websocket</groupId>
+        <groupId>org.fusesource.examples.activemq.websocket</groupId>
         <version>1.0</version>
     </parent>
 
@@ -132,7 +132,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2</version>
                 <configuration>
-                    <mainClass>com.fusesource.examples.camel.websocket.CamelWebSocketMain</mainClass>
+                    <mainClass>org.fusesource.examples.camel.websocket.CamelWebSocketMain</mainClass>
                     <includePluginDependencies>false</includePluginDependencies>
                 </configuration>
             </plugin>

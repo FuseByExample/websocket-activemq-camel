@@ -1,4 +1,4 @@
-package com.fusesource.examples.activemq.websocket.feed;
+package org.fusesource.examples.activemq.websocket.feed;
 
 /**
  * Copyright 2011 FuseSource
@@ -16,9 +16,9 @@ package com.fusesource.examples.activemq.websocket.feed;
  * limitations under the License.
  */
 
-import com.fusesource.examples.activemq.websocket.marketdata.News;
-import com.fusesource.examples.activemq.websocket.marketdata.Portfolio;
-import com.fusesource.examples.activemq.websocket.marketdata.Stock;
+import org.fusesource.examples.activemq.websocket.marketdata.News;
+import org.fusesource.examples.activemq.websocket.marketdata.Portfolio;
+import org.fusesource.examples.activemq.websocket.marketdata.Stock;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;

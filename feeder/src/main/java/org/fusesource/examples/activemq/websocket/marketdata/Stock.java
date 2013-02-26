@@ -1,4 +1,4 @@
-package com.fusesource.examples.activemq.websocket.marketdata;
+package org.fusesource.examples.activemq.websocket.marketdata;
 
 /**
 * Copyright 2011 FuseSource

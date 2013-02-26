@@ -1,4 +1,4 @@
-package com.fusesource.examples.camel.websocket;
+package org.fusesource.examples.camel.websocket;
 
 import com.sun.jndi.ldap.pool.PooledConnectionFactory;
 import org.apache.activemq.ActiveMQConnectionFactory;

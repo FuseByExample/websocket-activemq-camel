@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.fusesource.examples.activemq.websocket</groupId>
+        <groupId>org.fusesource.examples.activemq.websocket</groupId>
         <artifactId>project</artifactId>
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.fusesource.examples.activemq.websocket</groupId>
+    <groupId>org.fusesource.examples.activemq.websocket</groupId>
     <artifactId>trader</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
@@ -32,7 +32,7 @@
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>
-                                    <mainClass>com.fusesource.examples.activemq.websocket.feed.JSONFeed</mainClass>
+                                    <mainClass>org.fusesource.examples.activemq.websocket.feed.JSONFeed</mainClass>
                                 </configuration>
                             </execution>
                         </executions>
