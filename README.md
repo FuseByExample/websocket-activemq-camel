@@ -1,31 +1,65 @@
-# Example showing How to use WebSocket HTML 5 with ActiveMQ and Camel
+# Example showing How to use WebSocket HTML 5 with JBoss A-MQ and Camel
 
-## ActiveMQ
+## JBoss A-MQ
 
-1) Download ActiveMQ 5.7 from this location
-    http://repo.fusesource.com/nexus/content/repositories/releases/org/apache/activemq/apache-activemq/5.7.0.fuse-71-047/
+1) Download JBoss A-MQ (https://access.redhat.com/downloads/) and unzip/untar the project locally
 
-    or Apache Release
-    http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.7.0/
+2) Change users.properties file in ${fuse-amq.home}/etc directory and add a new 'guest' user where
+   password is equal to 'password' and role 'admin'. This account will be used to authenticate the
+   user connected from the web page with websocket activemq but also by the feed java application
 
-2) start Jetty Web Server
+   guest=password,admin
 
-    cd websocket-activemq-camel/web
-    mvn jetty:run
+3) Copy the ActiveMQ configuration file from websocket-activemq-camel project to override activemq configuration
+   used as default configuration by JBoss A-MQ. This config file will modify the transport connectors
+   to add the websocket transport
 
-3)  Start ActiveMQ 5.x using the config provided in feeder/src/main/config directory
-    cd ~/fuse/servers/apache-activemq-5.x/bin
-    ./activemq console xbean:file:/Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
+   cp websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ${fuse-amq.home}/etc/activemq.xml
 
-4)  Compile and start Feed application
+4) Start JBoss a-mq using the shell or .bat script under bin directory
+   bin/a-mq
+
+         _ ____                                __  __  ____
+        | |  _ \                    /\        |  \/  |/ __ \
+        | | |_) | ___  ___ ___     /  \ ______| \  / | |  | |
+    _   | |  _ < / _ \/ __/ __|   / /\ \______| |\/| | |  | |
+   | |__| | |_) | (_) \__ \__ \  / ____ \     | |  | | |__| |
+    \____/|____/ \___/|___/___/ /_/    \_\    |_|  |_|\___\_\
+
+     JBoss A-MQ (6.0.0.redhat-009)
+     http://fusesource.com/products/fuse-mq-enterprise/
+
+   Hit '<tab>' for a list of available commands
+   and '[cmd] --help' for help on a specific command.
+   Hit '<ctrl-d>' or 'osgi:shutdown' to shutdown JBoss A-MQ.
+
+   JBossA-MQ:karaf@root>
+
+5) When the JBoss-AMQ console appears, install the activemq-websocket war file. This war file contains the
+   web project and stomp javascript clients used to open communication between the web browser and websocket
+   server running in JBoss A-MQ.
+
+   JBossA-MQ:karaf@root>install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+
+6) Checkout Websocket-activemq-camel git project from FuseByExample GitHub repository
+
+   git co https://github.com/FuseByExample/websocket-activemq-camel.git
+   cd websocket-activemq-camel
+   git checkout fuse-amq
+
+4)  Compile and start Feed application. This application will populate randomly data (stock prices) and publish
+    them in a topic which is the topic used by websocket to expose the date to the web browser
+
     cd websocket-activemq-camel/feed
     mvn -P run-trader
 
-5) Open your web browser
-    http://localhost:8080/stocks-activemq.html
+5) Open your web browser and point to the following URL
 
-    and click on connect button
-    Remark : To connect from the web page to the ActiveMQ broker, the login to be used is guest & password is password
+    http://localhost:8181/activemq-websocket/stocks-activemq.html
+
+6) Click on connect button
+
+   Remark : The login to be used to connect the websocket client to the JBoss A-MQ server is guest & password is password
 
 ## Camel
 
@@ -63,26 +97,3 @@ To test SSL & wss:// protocol, execute the follownig command
     https://localhost:8443/news-camel-wss.html
 
     and click on connect button
-
-
- FOR FUSE-MQ
-
- 1) Copy config file containing ActiveMQ WebSocket transports connectors
-
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
-
-OR
-
-cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc/activemq.xml
-
- 2) Add user guest and password password into the file etc/users.properties
- guestpassword,admin
-
- cp /websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
-
- 3) Start JBoss A-MQ and install the web project
- install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
-
- 3) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
-
