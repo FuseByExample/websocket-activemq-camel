@@ -19,33 +19,33 @@
 4) Start JBoss a-mq using the shell or .bat script under bin directory
    bin/a-mq
 
-         _ ____                                __  __  ____
-        | |  _ \                    /\        |  \/  |/ __ \
-        | | |_) | ___  ___ ___     /  \ ______| \  / | |  | |
-    _   | |  _ < / _ \/ __/ __|   / /\ \______| |\/| | |  | |
-   | |__| | |_) | (_) \__ \__ \  / ____ \     | |  | | |__| |
-    \____/|____/ \___/|___/___/ /_/    \_\    |_|  |_|\___\_\
+              _ ____                                __  __  ____
+             | |  _ \                    /\        |  \/  |/ __ \
+             | | |_) | ___  ___ ___     /  \ ______| \  / | |  | |
+         _   | |  _ < / _ \/ __/ __|   / /\ \______| |\/| | |  | |
+        | |__| | |_) | (_) \__ \__ \  / ____ \     | |  | | |__| |
+         \____/|____/ \___/|___/___/ /_/    \_\    |_|  |_|\___\_\
 
-     JBoss A-MQ (6.0.0.redhat-009)
-     http://fusesource.com/products/fuse-mq-enterprise/
+         JBoss A-MQ (6.0.0.redhat-009)
+         http://fusesource.com/products/fuse-mq-enterprise/
 
-   Hit '<tab>' for a list of available commands
-   and '[cmd] --help' for help on a specific command.
-   Hit '<ctrl-d>' or 'osgi:shutdown' to shutdown JBoss A-MQ.
+       Hit '<tab>' for a list of available commands
+       and '[cmd] --help' for help on a specific command.
+       Hit '<ctrl-d>' or 'osgi:shutdown' to shutdown JBoss A-MQ.
 
-   JBossA-MQ:karaf@root>
+       JBossA-MQ:karaf@root>
 
 5) When the JBoss-AMQ console appears, install the activemq-websocket war file. This war file contains the
    web project and stomp javascript clients used to open communication between the web browser and websocket
    server running in JBoss A-MQ.
 
-   JBossA-MQ:karaf@root>install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+    JBossA-MQ:karaf@root>install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
 
 6) Checkout Websocket-activemq-camel git project from FuseByExample GitHub repository
 
-   git co https://github.com/FuseByExample/websocket-activemq-camel.git
-   cd websocket-activemq-camel
-   git checkout fuse-amq
+    git co https://github.com/FuseByExample/websocket-activemq-camel.git
+    cd websocket-activemq-camel
+    git checkout fuse-amq
 
 4)  Compile and start Feed application. This application will populate randomly data (stock prices) and publish
     them in a topic which is the topic used by websocket to expose the date to the web browser
@@ -57,7 +57,7 @@
 
     http://localhost:8181/activemq-websocket/stocks-activemq.html
 
-    ![websocket-login.png](https://github.com/FuseByExample/raw/fuse-amq/websocket-login.png)
+  ![websocket-login.png](https://raw.github.com/FuseByExample/websocket-activemq-camel/fuse-amq/websocket-login.png)
 
 6) Click on connect button
 
@@ -65,7 +65,7 @@
 
    Consult stock prices !
 
-   ![websocket-stocks.png](https://github.com/FuseByExample/raw/fuse-amq/websocket-stocks.png)
+  ![websocket-stocks.png](https://raw.github.com/FuseByExample/websocket-activemq-camel/fuse-amq/websocket-stocks.png)
 
 ## Camel
 
