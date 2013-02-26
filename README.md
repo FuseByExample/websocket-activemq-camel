@@ -57,9 +57,15 @@
 
     http://localhost:8181/activemq-websocket/stocks-activemq.html
 
+    ![websocket-login.png](https://github.com/FuseByExample/raw/fuse-amq/websocket-login.png)
+
 6) Click on connect button
 
    Remark : The login to be used to connect the websocket client to the JBoss A-MQ server is guest & password is password
+
+   Consult stock prices !
+
+   ![websocket-stocks.png](https://github.com/FuseByExample/raw/fuse-amq/websocket-stocks.png)
 
 ## Camel
 
