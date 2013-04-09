@@ -17,7 +17,7 @@
    cp websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ${fuse-amq.home}/etc/activemq.xml
 
 4) Start JBoss a-mq using the shell or .bat script under bin directory
-   bin/a-mq
+   bin/
 
               _ ____                                __  __  ____
              | |  _ \                    /\        |  \/  |/ __ \
@@ -26,7 +26,7 @@
         | |__| | |_) | (_) \__ \__ \  / ____ \     | |  | | |__| |
          \____/|____/ \___/|___/___/ /_/    \_\    |_|  |_|\___\_\
 
-         JBoss A-MQ (6.0.0.redhat-009)
+         JBoss A-MQ (6.0.0.redhat-024)
          http://fusesource.com/products/fuse-mq-enterprise/
 
        Hit '<tab>' for a list of available commands
@@ -86,7 +86,7 @@
 
     and click on connect button
 
-To test SSL & wss:// protocol, execute the follownig command
+To test SSL & wss:// protocol, execute the following command
 
 1) Start Apache Camel Routes (with wss:// & HTTPS)
 
