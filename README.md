@@ -17,7 +17,8 @@
    cp websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ${fuse-amq.home}/etc/activemq.xml
 
 4) Start JBoss a-mq using the shell or .bat script under bin directory
-   bin/
+   `bin/amq` on Linux, MacOS X, ...
+   `bin\amq.bat` on Windows
 
               _ ____                                __  __  ____
              | |  _ \                    /\        |  \/  |/ __ \
