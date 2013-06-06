@@ -5,7 +5,8 @@
 1) Download ActiveMQ 5.8 from this location
     http://repo.fusesource.com/nexus/content/repositories/releases/org/apache/activemq/apache-activemq/5.8.0.redhat-60024/
 
-    or Apache Release
+or using Apache Release
+
     http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.8.0/
 
 2) start Jetty Web Server
@@ -14,17 +15,21 @@
     mvn jetty:run
 
 3)  Start ActiveMQ 5.x using the config provided in feeder/src/main/config directory
+
     cd ~/fuse/servers/apache-activemq-5.x/bin
     ./activemq console xbean:file:/Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
 
 4)  Compile and start Feed application
+
     cd websocket-activemq-camel/feed
     mvn -P run-trader
 
-5) Open your web browser
+5) Open your web browser at this address
+
     http://localhost:8080/stocks-activemq.html
 
-    and click on connect button
+and click on connect button
+
     Remark : To connect from the web page to the ActiveMQ broker, the login to be used is guest & password is password
 
 ## Camel
@@ -71,20 +76,21 @@ To test SSL & wss:// protocol, execute the follownig command
 
 2) Copy ActiveMQ config file containing ActiveMQ WebSocket transports connectors
 
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
+    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
 
  OR
 
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
+    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
+    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
 
 3)) Add user guest and password password into the file etc/users.properties
  guest=password,admin
 
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
+    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
 
 4) Start JBoss A-MQ and install the web project
- install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+
+    install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
 
 5) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
 
