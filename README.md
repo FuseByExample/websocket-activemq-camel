@@ -2,11 +2,11 @@
 
 ## ActiveMQ
 
-1) Download ActiveMQ 5.7 from this location
-    http://repo.fusesource.com/nexus/content/repositories/releases/org/apache/activemq/apache-activemq/5.7.0.fuse-71-047/
+1) Download ActiveMQ 5.8 from this location
+    http://repo.fusesource.com/nexus/content/repositories/releases/org/apache/activemq/apache-activemq/5.8.0.redhat-60024/
 
     or Apache Release
-    http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.7.0/
+    http://repo1.maven.org/maven2/org/apache/activemq/apache-activemq/5.8.0/
 
 2) start Jetty Web Server
 
@@ -31,8 +31,8 @@
 
 1) Start Apache Camel Routes (without using wss://)
 
-    cd websocket-activemq-camel/camel
-    mvn camel:run -P NO-SSL
+    cd websocket-activemq-camel/camel-ws
+    mvn camel:run
 
 2) Compile and Start Feed application
 
@@ -50,8 +50,8 @@ To test SSL & wss:// protocol, execute the follownig command
 
 1) Start Apache Camel Routes (with wss:// & HTTPS)
 
-    cd websocket-activemq-camel/camel
-    mvn camel:run -P SSL
+    cd websocket-activemq-camel/camel-ws-ssl
+    mvn camel:run
 
 2) Compile and Start Feed application
 
@@ -65,31 +65,52 @@ To test SSL & wss:// protocol, execute the follownig command
     and click on connect button
 
 
- FOR FUSE-MQ
+## JBoss A-MQ
 
- 1) Copy config file containing ActiveMQ WebSocket transports connectors
+1) Download JBoss A-MQ from RedHat Web site
+
+2) Copy ActiveMQ config file containing ActiveMQ WebSocket transports connectors
+
+ cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
+
+ OR
 
  cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
  cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
 
-OR
-
-cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
-
- 2) Add user guest and password password into the file etc/users.properties
+3)) Add user guest and password password into the file etc/users.properties
  guest=password,admin
 
  cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
 
- 3) Start JBoss A-MQ and install the web project
+4) Start JBoss A-MQ and install the web project
  install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
 
- 3) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
+5) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
 
-# JBoss Fuse
-features:install camel
-features:install camel-websocket
-features:install camel-twitter
-features:install activemq-camel
-install -s mvn:com.fusesource.examples.activemq.websocket/camel/1.0
+## JBoss Fuse
+
+1) Download JBoss Fuse from RedHat Web site
+
+2) Install features & bundles
+
+Remark : bug discovered with websocket & static resources (https://issues.apache.org/jira/browse/CAMEL-6432) + ssl (https://issues.apache.org/jira/browse/CAMEL-6433)
+
+    features:install camel
+    features:install camel-websocket
+    features:install camel-twitter
+    features:install activemq-camel
+    install -s mvn:com.fusesource.examples.activemq.websocket/camel-ws/1.0
+
+3) Compile and Start Feed application
+
+    cd websocket-activemq-camel/feed
+    mvn -P run-trader
+
+3) Connect to the web site using these addresses :
+
+    http://localhost:9090/news-camel.html
+    http://localhost:9090/stocks-camel.html
+    http://localhost:9090/chat-camel.html
+
 
