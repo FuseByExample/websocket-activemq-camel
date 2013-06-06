@@ -67,7 +67,7 @@ To test SSL & wss:// protocol, execute the follownig command
 
 ## JBoss A-MQ
 
-1) Download JBoss A-MQ from RedHat Web site
+1) Download JBoss A-MQ (https://access.redhat.com/downloads/) and unzip/untar the project locally
 
 2) Copy ActiveMQ config file containing ActiveMQ WebSocket transports connectors
 
@@ -90,7 +90,7 @@ To test SSL & wss:// protocol, execute the follownig command
 
 ## JBoss Fuse
 
-1) Download JBoss Fuse from RedHat Web site
+1) Download JBoss Fuse (https://access.redhat.com/downloads/) and unzip/untar the project locally
 
 2) Install features & bundles
 
