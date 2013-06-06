@@ -1,9 +1,8 @@
 package com.fusesource.examples.camel.websocket;
 
-import com.sun.jndi.ldap.pool.PooledConnectionFactory;
-import org.apache.activemq.ActiveMQConnectionFactory;
-
 import javax.jms.ConnectionFactory;
+
+import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Helper {
 

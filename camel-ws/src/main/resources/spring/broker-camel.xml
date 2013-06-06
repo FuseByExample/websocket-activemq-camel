@@ -15,20 +15,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
-<!-- Configures the Camel Context-->
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:camel="http://camel.apache.org/schema/spring"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring
-          http://camel.apache.org/schema/spring/camel-spring.xsd
        http://activemq.apache.org/schema/core
           http://activemq.apache.org/schema/core/activemq-core.xsd">
     
+    <import resource="classpath:META-INF/spring/camel-context.xml"/>
 
     <!-- This creates an embedded ActiveMQ Broker -->
     <broker xmlns="http://activemq.apache.org/schema/core" useJmx="true" persistent="false">
@@ -36,16 +31,5 @@
             <transportConnector uri="tcp://localhost:61616" />
         </transportConnectors>
     </broker>
-
-    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="tcp://localhost:61616"/>
-    </bean>
-
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <packageScan>
-        <package>com.fusesource.examples.camel.websocket</package>
-        <excludes>**.*WSS*</excludes>
-    </packageScan>
-  </camelContext>
 
 </beans>

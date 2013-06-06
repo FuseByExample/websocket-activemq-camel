@@ -1,12 +1,12 @@
 package com.fusesource.examples.camel.websocket;
 
-import org.apache.camel.LoggingLevel;
-import org.apache.camel.builder.RouteBuilder;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
+
+import org.apache.camel.LoggingLevel;
+import org.apache.camel.builder.RouteBuilder;
 
 public class TwitterRoute extends RouteBuilder {
 
@@ -43,11 +43,11 @@ public class TwitterRoute extends RouteBuilder {
     @Override
     public void configure() {
 
-        from("twitter://search?type=polling&delay=5&keywords=java&" + getUriTokens()).routeId("fromTwittertoWebSocketTweet")
+        from("twitter://search?type=polling&delay=5&keywords=jfj2013&" + getUriTokens()).routeId("fromTwittertoWebSocketTweet")
                 .transform(body().convertToString())
-                .delay(5000)
+                //.delay(5000)
                 .bean(TwitterRoute.class,"tweetToJSON")
-                .log(LoggingLevel.INFO, ">> Search for FuseNews : ${body}")
+                .log(LoggingLevel.INFO, ">> Search for News : ${body}")
                 .to("websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&staticResources=classpath:webapp");
     }
 

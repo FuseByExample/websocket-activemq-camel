@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.fusesource.examples.activemq.websocket</groupId>
+    <groupId>com.fusesource.examples.websocket</groupId>
     <artifactId>trader</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>

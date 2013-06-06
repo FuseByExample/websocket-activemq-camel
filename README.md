@@ -69,20 +69,27 @@ To test SSL & wss:// protocol, execute the follownig command
 
  1) Copy config file containing ActiveMQ WebSocket transports connectors
 
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
- cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
+ cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
+ cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
 
 OR
 
-cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc/activemq.xml
+cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
 
  2) Add user guest and password password into the file etc/users.properties
- guestpassword,admin
+ guest=password,admin
 
- cp /websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-009/etc
+ cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/users.properties ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
 
  3) Start JBoss A-MQ and install the web project
  install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
 
  3) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
+
+# JBoss Fuse
+features:install camel
+features:install camel-websocket
+features:install camel-twitter
+features:install activemq-camel
+install -s mvn:com.fusesource.examples.activemq.websocket/camel/1.0
 
