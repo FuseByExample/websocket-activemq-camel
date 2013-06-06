@@ -17,7 +17,7 @@ or using Apache Release
 3)  Start ActiveMQ 5.x using the config provided in feeder/src/main/config directory
 
     cd ~/fuse/servers/apache-activemq-5.x/bin
-    ./activemq console xbean:file:/Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
+    ./activemq console xbean:file:~/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/activemq-websocket.xml
 
 4)  Compile and start Feed application
 
@@ -76,12 +76,12 @@ To test SSL & wss:// protocol, execute the follownig command
 
 2) Copy ActiveMQ config file containing ActiveMQ WebSocket transports connectors
 
-    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
+    cp ~/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/activemq.xml
 
  OR
 
-    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
-    cp /Users/chmoulli/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
+    cp ~/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/org.fusesource.mq.fabric.server-default.cfg ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc
+    cp ~/Fuse/fuse-by-examples/websocket-activemq-camel/feeder/src/main/config/fuseamq-websocket.xml ~/Fuse/servers/jboss-a-mq-6.0.0.redhat-024/etc/
 
 3)) Add user guest and password password into the file etc/users.properties
  guest=password,admin
