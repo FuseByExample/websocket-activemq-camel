@@ -96,6 +96,9 @@ To test SSL & wss:// protocol, execute the follownig command
 
 ## JBoss Fuse
 
+! Twitter Demo does not work with current Camel 2.10 release as Twitter API 1.0 has been retired
+! Camel 2.11 is required
+
 1) Download JBoss Fuse (https://access.redhat.com/downloads/) and unzip/untar the project locally
 
 2) Install features & bundles
@@ -120,3 +123,22 @@ Remark : bug discovered with websocket & static resources (https://issues.apache
     http://localhost:9090/chat-camel.html
 
 
+## Apache Karaf
+
+1) Download Apache Karaf (http://karaf.apache.org/index/community/download.html) and unzip/untar the project locally
+
+2) Install features & bundles
+
+    features:addurl mvn:com.fusesource.examples.websocket/features/1.0/xml/features
+    features:install websocket-demo
+
+3) Compile and Start Feed application
+
+    cd websocket-activemq-camel/feed
+    mvn -P run-trader
+
+3) Connect to the web site using these addresses :
+
+    http://localhost:9090/news-camel.html
+    http://localhost:9090/stocks-camel.html
+    http://localhost:9090/chat-camel.html

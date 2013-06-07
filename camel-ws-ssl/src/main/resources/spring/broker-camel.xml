@@ -6,7 +6,7 @@
        http://activemq.apache.org/schema/core
           http://activemq.apache.org/schema/core/activemq-core.xsd">
 
-  <import resource="classpath:META-INF/spring/camel-context.xml"/>
+  <import resource="classpath:META-INF/spring/camel-context-ssl.xml"/>
 
 
     <!-- This creates an embedded ActiveMQ Broker -->

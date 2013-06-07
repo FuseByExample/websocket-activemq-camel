@@ -239,7 +239,7 @@ td.green {
 }
 
 .upChange {
-    background: url(/images/stock_index_up.jpg) center left no-repeat;
+    background: url(/webapp/images/stock_index_up.jpg) center left no-repeat;
     background-size: 10px;
     position: relative;
     font-weight: bold;
@@ -249,7 +249,7 @@ td.green {
 }
 
 .downChange {
-    background: url(/images/stock_index_down.jpg) center left no-repeat;
+    background: url(/webapp/images/stock_index_down.jpg) center left no-repeat;
     background-size: 10px;
     position: relative;
     font-weight: bold;

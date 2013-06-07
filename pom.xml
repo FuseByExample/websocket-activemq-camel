@@ -8,18 +8,19 @@
   <name>FuseSource :: WebSocket :: ActiveMQ &amp; Camel Project</name>
 
   <properties>
-    <!-- Camel 2.11
     <camel-version>2.11.0</camel-version>
     <activemq-version>5.8.0</activemq-version>
     <slf4j-version>1.6.6</slf4j-version>
     <log4j-version>1.2.17</log4j-version>
 
     <jetty-maven-plugin.version>7.6.8.v20121106</jetty-maven-plugin.version>
-    -->
-    <camel-version>2.10.0</camel-version>
+
+    <!-- Issue with twitter API 1.0 retired
+    <camel-version>2.10.3</camel-version>
     <activemq-version>5.8.0</activemq-version>
     <slf4j-version>1.6.5</slf4j-version>
     <log4j-version>1.2.16</log4j-version>
+    -->
 
     <jetty-maven-plugin.version>7.6.8.v20121106</jetty-maven-plugin.version>
   </properties>
@@ -29,6 +30,7 @@
     <module>web</module>
     <module>camel-ws</module>
     <module>camel-ws-ssl</module>
+    <module>features</module>
   </modules>
 
   <dependencies>

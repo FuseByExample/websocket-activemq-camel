@@ -1,0 +1,23 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+  <repository>mvn:org.apache.camel.karaf/apache-camel/${camel-version}/xml/features</repository>
+  <repository>mvn:org.apache.activemq/activemq-karaf/${activemq-version}/xml/features</repository>
+
+  <!-- Feature to deploy ActiveMQ Broker & Camel ActiveMQ component -->
+  <feature name="broker" version="${activemq-version}">
+    <feature version="${activemq-version}">activemq-broker</feature>
+    <!-- Issue with ActiveMQ 5.8 distro jar != bundle -->
+    <feature version="[2.10,3)">camel-jms</feature>
+    <bundle>wrap:mvn:org.apache.activemq/activemq-camel/${activemq-version}</bundle>
+  </feature>
+
+  <!-- WebSocket, Twitter -->
+  <feature name="websocket-demo" version="${project.version}">
+    <feature version="${activemq-version}">broker</feature>
+    <feature version="[2.11,3)">camel</feature>
+    <feature version="[2.11,3)">camel-twitter</feature>
+    <feature version="[2.11,3)">camel-websocket</feature>
+    <bundle>mvn:com.fusesource.examples.websocket/camel-ws/${project.version}</bundle>
+  </feature>
+
+</features>

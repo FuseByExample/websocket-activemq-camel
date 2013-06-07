@@ -73,11 +73,18 @@
       <artifactId>json</artifactId>
       <version>20090211</version>
     </dependency>
+
     <!-- JMS & ActiveMQ -->
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-all</artifactId>
       <version>${activemq-version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
@@ -89,6 +96,14 @@
       <artifactId>activemq-camel</artifactId>
       <version>${activemq-version}</version>
     </dependency>
+
+    <!-- Twitter -->
+    <dependency>
+      <groupId>org.twitter4j</groupId>
+      <artifactId>twitter4j-core</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+
     <!-- for testing -->
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -131,10 +146,10 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2</version>
+        <version>1.2.1</version>
         <configuration>
-          <mainClass>com.fusesource.examples.camel.websocket.CamelWebSocketMain</mainClass>
-          <includePluginDependencies>false</includePluginDependencies>
+          <mainClass>com.fusesource.examples.camel.websocket.SearchTweets</mainClass>
+          <includeProjectDependencies>true</includeProjectDependencies>
         </configuration>
       </plugin>
 
@@ -162,8 +177,6 @@
             <filtering>true</filtering>
             <excludes>
               <exclude>spring/*.xml</exclude>
-              <exclude>jsse/*.jks</exclude>
-              <exclude>jsse/</exclude>
             </excludes>
           </resource>
         </resources>
@@ -197,6 +210,10 @@
                 <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                 <Bundle-Name>${project.name}</Bundle-Name>
                 <Bundle-Version>${project.version}</Bundle-Version>
+                <Import-Package>
+                  org.apache.activemq.camel.component,
+                  *
+                </Import-Package>
               </instructions>
             </configuration>
           </plugin>
