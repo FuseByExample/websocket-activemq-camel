@@ -26,7 +26,7 @@ or using Apache Release
 
 5) Open your web browser at this address
 
-    http://localhost:8080/stocks-activemq.html
+    http://localhost:8282/stocks-activemq.html
 
 and click on connect button
 
@@ -90,7 +90,7 @@ To test SSL & wss:// protocol, execute the follownig command
 
 4) Start JBoss A-MQ and install the web project
 
-    install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+    install -s webbundle:mvn:com.fusesource.examples.websocket/web/1.0/war?Web-ContextPath=/activemq-websocket
 
 5) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
 
