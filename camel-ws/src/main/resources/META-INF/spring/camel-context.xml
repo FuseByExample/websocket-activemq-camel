@@ -20,12 +20,16 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:ctx="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
+       http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring
-          http://camel.apache.org/schema/spring/camel-spring.xsd">
+         http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <ctx:property-placeholder location="classpath:twitter-options.properties"/>
 
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="tcp://localhost:61616"/>
@@ -34,10 +38,22 @@
         <property name="password" value="admin"/>
     </bean>
 
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <packageScan>
-        <package>com.fusesource.examples.camel.websocket</package>
-    </packageScan>
-  </camelContext>
+    <bean id="helper" class="com.fusesource.examples.camel.Helper"/>
+
+    <bean id="twitterRoute" class="com.fusesource.examples.camel.twitter.WebSocketTwitterRoute">
+        <property name="consumerKey" value="${consumer.key}"/>
+        <property name="consumerSecret" value="${consumer.secret}"/>
+        <property name="accessToken" value="${access.token}"/>
+        <property name="accessTokenSecret" value="${access.token.Secret}"/>
+        <property name="keywords" value="${keywords}"/>
+        <property name="delay" value="${delay}"/>
+    </bean>
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <packageScan>
+            <package>com.fusesource.examples.camel.websocket</package>
+        </packageScan>
+        <routeBuilder ref="twitterRoute"/>
+    </camelContext>
 
 </beans>

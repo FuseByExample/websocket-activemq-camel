@@ -35,7 +35,7 @@
     <properties>
         <fabric8.features>camel-twitter camel-websocket activemq-camel</fabric8.features>
         <fabric8.profile>demo-camel-twitter</fabric8.profile>
-        <fabric8.bundles>blueprint:profile:camel.xml</fabric8.bundles>
+        <fabric8.bundles/>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.featureRepos>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610375/xml/features</fabric8.featureRepos>
     </properties>
