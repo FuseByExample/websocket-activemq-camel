@@ -1,4 +1,6 @@
-# Example showing How to use WebSocket HTML 5 with ActiveMQ and Camel
+# Example showing How to use WebSocket HTML5 with ActiveMQ, Camel, Karaf & JBoss Fuse technology
+
+TODO
 
 ## ActiveMQ
 
@@ -21,7 +23,7 @@ or using Apache Release
 
 4)  Compile and start Feed application
 
-    cd websocket-activemq-camel/feed
+    cd websocket-activemq-camel/feeder
     mvn -P run-trader
 
 5) Open your web browser at this address
@@ -41,7 +43,7 @@ and click on connect button
 
 2) Compile and Start Feed application
 
-    cd websocket-activemq-camel/feed
+    cd websocket-activemq-camel/feeder
     mvn -P run-trader
 
 3) Verify stock and news websockets in your browser
@@ -60,7 +62,7 @@ To test SSL & wss:// protocol, execute the follownig command
 
 2) Compile and Start Feed application
 
-    cd websocket-activemq-camel/feed
+    cd websocket-activemq-camel/feeder
     mvn -P run-trader
 
 3) Verify stock and news websockets in your browser
@@ -96,30 +98,41 @@ To test SSL & wss:// protocol, execute the follownig command
 
 ## JBoss Fuse
 
-! Twitter Demo does not work with current Camel 2.10 release as Twitter API 1.0 has been retired
-! Camel 2.11 is required
+! Twitter Demo does not work anymore with current Camel 2.10 release as Twitter API 1.0 has been retired
+! In consequence Camel 2.12.3 is required and will proposed by JBoss Fuse 6.1
 
-1) Project must be compiled using this profile option to generate the bundles
+1) The project must be compiled using this profile option to generate the bundle(s) that we will deploy on the OSGI container
 
      mvn clean install -Pbundle
 
-2) Download (https://repository.jboss.org/nexus/content/repositories/ea/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-375/)[JBoss Fuse] and unzip/untar the project locally
+2) Next, download (https://repository.jboss.org/nexus/content/repositories/ea/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-375/)[JBoss Fuse] and unzip/untar the project locally
 
-3) Install features & bundles
+3) Move to the bin directory of the JBoss Fuse distribution and start the server
 
-Remark : bug discovered with websocket & static resources (https://issues.apache.org/jira/browse/CAMEL-6432) + ssl (https://issues.apache.org/jira/browse/CAMEL-6433)
+    ./fuse
 
-    features:install camel
+4) Install features & bundles
+
+When the console of Karaf appears, we will install the libraaris required to run the application. So first, install the XML resources file containing the definition about the modules to be deployed.
+This features file contains for each module (= a feature), the bundles, configurations and parameters of the applications to be deployed and also references to others features/modules like camel, camel-twitter ...
+
+    features:addurl mvn:com.fusesource.examples.websocket/features/1.0/xml/features
+    features:install websocket-demo
+
+The project can also be installed without using the features file created for this project but, in this case, using what is provisioned out of the box on JBoss Fuse platform.
+
     features:install camel-websocket
     features:install camel-twitter
-    install -s mvn:com.fusesource.examples.websocket/camel-ws/1.0
+    install -s mvn:com.fusesource.examples.activemq.websocket/camel-ws/1.0
 
-4) Compile and Start Feed application
+5) Compile and Start Feed application
+
+As the application generating the feeds for the websocket-stock server is not deployed on JBoss Fuse, it must be started separately using a maven command
 
     cd websocket-activemq-camel/feeder
     mvn -P run-trader
 
-5) Connect to the web site using these addresses :
+6) Connect to the web site using these addresses :
 
     http://localhost:9090/news-camel.html
     http://localhost:9090/stocks-camel.html

@@ -13,6 +13,7 @@ public class TwitterRoute extends RouteBuilder {
     protected String consumerSecret;
     protected String accessToken;
     protected String accessTokenSecret;
+    protected String keywords;
 
     public TwitterRoute() {
         URL url = getClass().getResource("/twitter-options.properties");
@@ -37,12 +38,13 @@ public class TwitterRoute extends RouteBuilder {
         consumerSecret = properties.get("consumer.secret").toString();
         accessToken = properties.get("access.token").toString();
         accessTokenSecret = properties.get("access.token.secret").toString();
+        this.keywords = properties.get("keywords").toString();
     }
 
     @Override
     public void configure() {
 
-        from("twitter://search?type=polling&delay=5&&useSSL=true&keywords=jfj2013&" + getUriTokens())
+        from("twitter://search?type=polling&delay=5&useSSL=true&keywords=" + keywords + "&" + getUriTokens())
                 .routeId("fromTwittertoWebSocketTweet")
                 .transform(body().convertToString())
                 .delay(5000)

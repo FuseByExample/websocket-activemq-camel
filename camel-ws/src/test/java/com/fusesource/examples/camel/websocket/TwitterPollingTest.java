@@ -22,6 +22,7 @@ public class TwitterPollingTest extends CamelTestSupport {
     protected String consumerSecret;
     protected String accessToken;
     protected String accessTokenSecret;
+    protected String keywords;
 
     public TwitterPollingTest() {
         config();
@@ -51,6 +52,7 @@ public class TwitterPollingTest extends CamelTestSupport {
         this.consumerSecret = properties.get("consumer.secret").toString();
         this.accessToken = properties.get("access.token").toString();
         this.accessTokenSecret = properties.get("access.token.secret").toString();
+        this.keywords = properties.get("keywords").toString();
     }
 
 
@@ -75,7 +77,7 @@ public class TwitterPollingTest extends CamelTestSupport {
     protected RouteBuilder createRouteBuilder() {
         return new RouteBuilder() {
             public void configure() {
-                from("twitter://search?type=polling&useSSL=true&keywords=java&" + getUriTokens())
+                from("twitter://search?type=polling&useSSL=true&keywords=" + keywords + "&" + getUriTokens())
                    .transform(body().convertToString()).to("mock:result");
             }
         };
