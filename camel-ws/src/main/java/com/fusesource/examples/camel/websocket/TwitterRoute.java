@@ -42,7 +42,7 @@ public class TwitterRoute extends RouteBuilder {
     @Override
     public void configure() {
 
-        from("twitter://search?type=polling&delay=5&keywords=jfj2013&" + getUriTokens())
+        from("twitter://search?type=polling&delay=5&&useSSL=true&keywords=jfj2013&" + getUriTokens())
                 .routeId("fromTwittertoWebSocketTweet")
                 .transform(body().convertToString())
                 .delay(5000)
