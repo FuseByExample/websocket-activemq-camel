@@ -35,7 +35,7 @@
     <properties>
         <fabric8.features>camel-twitter camel-websocket activemq-camel</fabric8.features>
         <fabric8.profile>demo-camel-twitter</fabric8.profile>
-        <fabric8.bundles></fabric8.bundles>
+        <fabric8.bundles>blueprint:profile:camel.xml</fabric8.bundles>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.featureRepos>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610375/xml/features</fabric8.featureRepos>
     </properties>
@@ -135,15 +135,19 @@
     <build>
         <defaultGoal>install</defaultGoal>
 
-<!--        <resources>
+        <!-- Don't copy spring files when we generate the bundle as we will use Blueprint -->
+        <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <filtering>false</filtering>
                 <excludes>
+                    <exclude>META-INF/spring/*.xml</exclude>
                     <exclude>spring/*.xml</exclude>
+                    <exclude>twitter-options.properties</exclude>
+                    <exclude>log4j.properties</exclude>
                 </excludes>
             </resource>
-        </resources>-->
+        </resources>
 
         <plugins>
             <plugin>
@@ -204,6 +208,14 @@
                             org.apache.activemq.camel.component,
                             *
                         </Import-Package>
+                        <Export-Package>
+<!--                            com.fusesource.examples.camel,
+                            com.fusesource.examples.camel.websocket,
+                            webapp-->
+                        </Export-Package>
+                        <Private-Package>
+                            com.fusesource.examples.camel*
+                        </Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

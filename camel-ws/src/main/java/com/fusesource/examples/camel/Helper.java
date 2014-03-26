@@ -1,4 +1,4 @@
-package com.fusesource.examples.camel.websocket;
+package com.fusesource.examples.camel;
 
 import javax.jms.ConnectionFactory;
 
@@ -17,6 +17,15 @@ public class Helper {
         connectionFactory.setOptimizedMessageDispatch(true);
 
         return connectionFactory;
+    }
+
+
+    public static String tweetToJSON(String message) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("{\"tweet\":\"");
+        builder.append(message);
+        builder.append("\"}");
+        return builder.toString();
     }
 
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+           xsi:schemaLocation="
+           http://www.osgi.org/xmlns/blueprint/v1.0.0
+             http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+           http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0
+             http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd
+           http://camel.apache.org/schema/blueprint
+             http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <cm:property-placeholder id="twitterConfig" persistent-id="twitter"/>
+
+    <bean id="helper" class="com.fusesource.examples.camel.Helper"/>
+
+    <bean id="twitterRoute" class="com.fusesource.examples.camel.twitter.WebSocketTwitterRoute">
+        <property name="consumerKey" value="{{consumer.key}}"/>
+        <property name="consumerSecret" value="{{consumer.secret}}"/>
+        <property name="accessToken" value="{{access.token}}"/>
+        <property name="accessTokenSecret" value="{{access.token.Secret}}"/>
+        <property name="keywords" value="{{keywords}}"/>
+        <property name="delay" value="{{delay}}"/>
+    </bean>
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <!-- Login & Paswword required by ActiveMQ deployed in JBoss Fuse 6.1 -->
+        <property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+
+        <!-- using Camel properties component and refer to the blueprint property placeholder by its id
+        <propertyPlaceholder id="properties" location="blueprint:twitterConfig"/>
+        -->
+
+        <packageScan>
+            <package>com.fusesource.examples.camel.websocket</package>
+        </packageScan>
+
+        <routeBuilder ref="twitterRoute"/>
+
+       <!--
+           <route id="fromTwittertoWebSocketTweet">
+            <from uri="twitter://search?type=polling&amp;delay={{delay}}&amp;keywords={{keywords}}&amp;accessToken={{access.token}}&amp;accessTokenSecret={{access.token.secret}}&amp;consumerKey={{consumer.key}}&amp;consumerSecret={{consumer.secret}}&amp;useSSL=true"/>
+            <log message="&gt;&gt; Results received : ${body}"/>
+            <bean ref="helper" method="tweetToJSON"/>
+            <log message="&gt;&gt; Response prepared : ${body}"/>
+            <to uri="websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&amp;staticResources=classpath:webapp"/>
+        </route>
+        -->
+    </camelContext>
+
+</blueprint>
