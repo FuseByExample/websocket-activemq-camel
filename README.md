@@ -105,6 +105,13 @@ To test SSL & wss:// protocol, execute the follownig command
 
 Remark : bug discovered with websocket & static resources (https://issues.apache.org/jira/browse/CAMEL-6432) + ssl (https://issues.apache.org/jira/browse/CAMEL-6433)
 
+First, install the XML resources file containing the definition about the modules to be deployed. This features file contains for each module (= a feature), the bundles, configurationss and parameters of the applications to be deployed and also references to others features/modules like `camel`, `camel-twitter` ...
+
+    features:addurl mvn:com.fusesource.examples.websocket/features/1.0/xml/features
+    features:install websocket-demo
+    
+The project can also be installed without using the features file created for this project but, in this case, using what is provisioned out of the box on JBoss Fuse platform.    
+
     features:install camel
     features:install camel-websocket
     features:install camel-twitter
