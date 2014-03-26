@@ -49,9 +49,9 @@
       <version>${camel-version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-jms</artifactId>
-      <version>${camel-version}</version>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+      <version>${activemq-version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -192,7 +192,7 @@
           <plugin>
             <groupId>org.apache.felix</groupId>
             <artifactId>maven-bundle-plugin</artifactId>
-            <version>2.3.7</version>
+            <version>${bundle-maven-plugin.version}</version>
             <executions>
               <execution>
                 <id>bundle-manifest</id>

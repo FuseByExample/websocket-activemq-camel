@@ -29,6 +29,9 @@
 
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="tcp://localhost:61616"/>
+        <!-- Login & Paswword required by JBoss Fuse 6.1 -->
+        <property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
     </bean>
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">

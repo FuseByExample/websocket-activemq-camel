@@ -44,8 +44,9 @@ public abstract class FeedThread extends Thread {
 
             // create the connection factory
             ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
-            Connection connection = connectionFactory.createConnection("guest", "password");
+            //Connection connection = connectionFactory.createConnection("guest", "password");
             //Connection connection = connectionFactory.createConnection();
+            Connection connection = connectionFactory.createConnection("admin", "admin");
             connection.start();
 
             // Create the session and topic
