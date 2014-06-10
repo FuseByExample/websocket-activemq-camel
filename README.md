@@ -26,7 +26,7 @@ or using Apache Release
 
 5) Open your web browser at this address
 
-    http://localhost:8080/stocks-activemq.html
+    http://localhost:8282/stocks-activemq.html
 
 and click on connect button
 
@@ -90,7 +90,7 @@ To test SSL & wss:// protocol, execute the follownig command
 
 4) Start JBoss A-MQ and install the web project
 
-    install -s war:mvn:com.fusesource.examples.activemq.websocket/web/1.0/war\?Webapp-Context=activemq-websocket
+    install -s webbundle:mvn:com.fusesource.examples.websocket/web/1.0/war?Web-ContextPath=/activemq-websocket
 
 5) Connect to the web site http://localhost:8181/activemq-websocket/stocks-activemq.html
 
@@ -104,6 +104,13 @@ To test SSL & wss:// protocol, execute the follownig command
 2) Install features & bundles
 
 Remark : bug discovered with websocket & static resources (https://issues.apache.org/jira/browse/CAMEL-6432) + ssl (https://issues.apache.org/jira/browse/CAMEL-6433)
+
+First, install the XML resources file containing the definition about the modules to be deployed. This features file contains for each module (= a feature), the bundles, configurationss and parameters of the applications to be deployed and also references to others features/modules like `camel`, `camel-twitter` ...
+
+    features:addurl mvn:com.fusesource.examples.websocket/features/1.0/xml/features
+    features:install websocket-demo
+    
+The project can also be installed without using the features file created for this project but, in this case, using what is provisioned out of the box on JBoss Fuse platform.    
 
     features:install camel
     features:install camel-websocket
