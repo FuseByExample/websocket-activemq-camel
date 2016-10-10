@@ -1,3 +1,6 @@
+NOTE: This project is not supported on JBoss Fuse version 6.3 or later
+-----------------------------------------------------------------------
+
 # Example showing How to use WebSocket HTML 5 with ActiveMQ and Camel
 
 ## ActiveMQ
